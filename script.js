@@ -1,7 +1,13 @@
-let = gridSize = 16;
+let = gridSize;
 const container = document.querySelector('#container');
+const form = document.querySelector('#control-form');
 const numberInput = document.querySelector('#number-input');
 const btnCreateGrid = document.querySelector('#create-grid');
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    createGrid(numberInput.value)
+});
 
 function createGrid(size) {
     container.innerHTML = '';
@@ -37,5 +43,3 @@ function createColorful(size) {
         })
     }
 }
-
-createGrid(gridSize);
