@@ -24,4 +24,6 @@ main {
 .pixel {
     flex: 0 0 calc(100% / var(--grid-size));
     aspect-ratio: 1 / 1;
+    filter: opacity(var(--opacity));
+    background-color: black;
 }
