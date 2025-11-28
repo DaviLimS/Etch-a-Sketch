@@ -1,5 +1,7 @@
 let = gridSize = 16;
 const container = document.querySelector('#container');
+const numberInput = document.querySelector('#number-input');
+const btnCreateGrid = document.querySelector('#create-grid');
 
 function createGrid(size) {
     container.innerHTML = '';
