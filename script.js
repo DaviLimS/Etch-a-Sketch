@@ -3,7 +3,9 @@ const container = document.querySelector('#container');
 
 function createGrid(size) {
     container.innerHTML = '';
-    for(let i = 0; i < Math.sqrt(size); i++) {
+    container.style.setProperty('--grid-size', size)
+
+    for(let i = 0; i < Math.pow(size, 2); i++) {
         const pixel = document.createElement('div');
         container.appendChild(pixel);
         pixel.classList.add('pixel');
@@ -24,7 +26,7 @@ function createColorful(size) {
     container.innerHTML = '';
     container.style.setProperty('--grid-size', size)
 
-    for (let i =0; i < Math.sqrt(size); i++) {
+    for (let i =0; i < Math.pow(size, 2); i++) {
         const pixel = document.createElement('div')
         container.appendChild(pixel);
         pixel.classList.add('pixel');
