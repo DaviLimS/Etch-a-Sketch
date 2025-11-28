@@ -5,7 +5,10 @@ function createGrid(size) {
     const container = document.querySelector('#container');
 
     function colorSet() {
-        color = `${Math.round(Math.random() * 100)}, ${Math.round(Math.random() * 100)}, ${Math.round(Math.random() * 100)}`;
+        let r = Math.round(Math.random() * 100);
+        let g = Math.round(Math.random() * 100);
+        let b = Math.round(Math.random() * 100);
+        color = `rgb: "${r}, ${g}, ${b}"`;
     }
     colorSet();
 
@@ -17,6 +20,9 @@ function createGrid(size) {
         const pixel = document.createElement('div')
         container.appendChild(pixel);
         pixel.classList.add('pixel');
+        pixel.addEventListener('mouseover', () => {
+        pixel.style.backgroundColor = color;
+    })
     }
 }
 
