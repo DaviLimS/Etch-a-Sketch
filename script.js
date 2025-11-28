@@ -1,7 +1,16 @@
-let = defaultGrid = 16;
+let = gridSize = 16;
 
-const pixel = document.createElement('div')
-const container = document.querySelector('#container');
+function createGrid(size) {
+    const container = document.querySelector('#container');
+    container.innerHTML = '';
+    container.style.setProperty('--grid-size', size)
 
-container.appendChild(pixel);
-pixel.classList.add('pixel');
+    for (let i =0; i < size * size; i++) {
+        const pixel = document.createElement('div')
+        container.appendChild(pixel);
+        pixel.classList.add('pixel');
+    }
+    
+}
+
+createGrid(gridSize);
