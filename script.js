@@ -1,11 +1,19 @@
 let = gridSize = 16;
+const container = document.querySelector('#container');
 
 function createGrid(size) {
+    container.innerHTML = '';
+    for(let i = 0; i < Math.sqrt(size); i++) {
+        const pixel = document.createElement('div');
+        container.appendChild(pixel);
+        pixel.classList.add('pixel');
+        pixel.addEventListener('mouseover', () => {
+            pixel.style.backgroundColor = 'black';
+        })
+    }
 }
 
 function createColorful(size) {
-    const container = document.querySelector('#container');
-
     function colorSet() {
         let r = Math.round(Math.random() * 256);
         let g = Math.round(Math.random() * 256);
@@ -16,7 +24,7 @@ function createColorful(size) {
     container.innerHTML = '';
     container.style.setProperty('--grid-size', size)
 
-    for (let i =0; i < size * size; i++) {
+    for (let i =0; i < Math.sqrt(size); i++) {
         const pixel = document.createElement('div')
         container.appendChild(pixel);
         pixel.classList.add('pixel');
