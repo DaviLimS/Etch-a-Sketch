@@ -1,23 +1,24 @@
-let gridSize;
+let gridSize = 16;
 const container = document.querySelector('#container');
 const form = document.querySelector('#control-form');
 const numberInput = document.querySelector('#number-input');
 const btnCreateGrid = document.querySelector('#create-grid');
-const blackOpt = document.querySelector("#black");
 
-if (blackOpt.value == 'on') {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        if (numberInput.value >= 100) {
-            createGrid(100);
-        }
-        else {
-            createGrid(numberInput.value);
-        }
-    })
+function normalizeSize(val) {
+    const n = Number(val);
+    if(!n || n < 1) return 16;
+    return Math.min(100, Math.floor(n));
 }
 
+if(form) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const mode = (document.querySelector('input[name.color]:checked') || {}).value || 'black'; 
+        const size = normalizeSize(numberInput.value);
+        if(mode === "black") createGrid(size);
+        else createColorful(size);
+    })
+}
 
 function createGrid(size) {
     container.innerHTML = '';
