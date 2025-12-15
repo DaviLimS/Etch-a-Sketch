@@ -13,7 +13,7 @@ function normalizeSize(val) {
 if(form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const mode = (document.querySelector('input[name.color]:checked') || {}).value || 'black'; 
+        const mode = (document.querySelector('input[name="color"]:checked') || {}).value || 'black'; 
         const size = normalizeSize(numberInput.value);
         if(mode === "black") createGrid(size);
         else createColorful(size);

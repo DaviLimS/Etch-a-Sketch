@@ -46,6 +46,28 @@ main {
     border-radius: 6px;
 }
 
+.control2 {
+    width: 25%;
+    height: 5%;
+    margin-top: 1.5%;
+}
+
+.control2 input {
+    margin-right: 3%;
+}
+
+#control-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#control-container div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
 .pixel {
     flex: 0 0 calc(100% / var(--grid-size));
     aspect-ratio: 1 / 1;
