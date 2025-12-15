@@ -3,17 +3,21 @@ const container = document.querySelector('#container');
 const form = document.querySelector('#control-form');
 const numberInput = document.querySelector('#number-input');
 const btnCreateGrid = document.querySelector('#create-grid');
+const blackOpt = document.querySelector("#black");
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+if (blackOpt.value == 'on') {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-    if (numberInput.value >= 100) {
-        createGrid(100);
-    }
-    else {
-        createGrid(numberInput.value)
-    }
-});
+        if (numberInput.value >= 100) {
+            createGrid(100);
+        }
+        else {
+            createGrid(numberInput.value);
+        }
+    })
+}
+
 
 function createGrid(size) {
     container.innerHTML = '';
